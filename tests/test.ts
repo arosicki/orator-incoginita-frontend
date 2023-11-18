@@ -1,5 +1,8 @@
-import { expect } from 'vitest';
+import { expect, test } from '@playwright/test';
 
 test('index page has expected h1', async ({ page }) => {
-  expect(true).toEqual(true);
+  await page.goto('/');
+  await expect(
+    page.getByRole('link', { name: "Nothing's here yet! Click to visit chat page" }),
+  ).toBeVisible();
 });
